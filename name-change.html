@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>We changed our name: Cantorix</title>
+  <meta name="description" content="Cantorix (formerly Vibrant Medical). Same team, same mission, new name." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://cantorixmed.com/" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="theme-color" content="#0B2545" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0B2545; --blue: #1191CC; --blue-soft: #5AB6E0;
+      --white: #FFFFFF; --gray: #C9D4E2; --gray-soft: #8597AC;
+      --border-soft: rgba(255, 255, 255, 0.08);
+    }
+    html, body { height: 100%; }
+    body {
+      background: var(--navy); color: var(--white);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem 1.25rem; position: relative; overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: absolute; top: -20%; left: 50%; transform: translateX(-50%);
+      width: 1100px; height: 700px; max-width: 200vw;
+      background: radial-gradient(ellipse at top, rgba(17,145,204,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    main { position: relative; max-width: 620px; width: 100%; text-align: center; }
+    .logo { height: 72px; width: auto; max-width: 100%; margin: 0 auto 2.6rem; display: block; }
+    .eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--blue-soft); font-weight: 600; margin-bottom: 1.2rem;
+    }
+    h1 {
+      font-family: 'Montserrat', system-ui, sans-serif; font-weight: 900;
+      font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.1; letter-spacing: -0.015em;
+      text-transform: uppercase;
+    }
+    h1 .accent { color: var(--blue); }
+    .formerly { margin-top: 1.2rem; font-size: 1.05rem; color: var(--gray); }
+    .body { margin-top: 1.4rem; font-size: 1rem; color: var(--gray); max-width: 52ch; margin-left: auto; margin-right: auto; }
+    .email { margin-top: 1.4rem; font-size: 0.9rem; color: var(--gray-soft); }
+    .email strong { color: var(--white); font-weight: 500; }
+    .btn {
+      margin-top: 2.4rem; display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 1rem 1.8rem; border-radius: 4px; background: var(--blue); color: var(--white);
+      font-weight: 600; font-size: 0.95rem; letter-spacing: 0.04em; text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover, .btn:focus-visible { background: #0D7AAD; box-shadow: 0 0 28px rgba(17,145,204,0.45); outline: none; }
+    .btn svg { width: 16px; height: 16px; }
+    @media (max-width: 540px) { .logo { height: 54px; margin-bottom: 2rem; } }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="logo.svg" alt="Cantorix" class="logo" width="309" height="72" />
+    <p class="eyebrow">We changed our name</p>
+    <h1>Same team.<br/>Same mission.<br/><span class="accent">New name.</span></h1>
+    <p class="formerly">Cantorix (formerly Vibrant Medical)</p>
+    <p class="body">
+      Cantorix is the name for our next stage, the move into clinical, built around
+      technology that senses the problem long before anyone else can.
+    </p>
+    <p class="email">Our email addresses now end in <strong>@cantorixmed.com</strong>.</p>
+    <a id="next" class="btn" href="/">
+      Continue to Cantorix
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </main>
+  <script>
+    // Send the visitor on to the page they originally asked for on the old domain (same path on the new site).
+    (function () {
+      try {
+        var to = new URLSearchParams(window.location.search).get('to') || '/';
+        if (to.charAt(0) !== '/' || to.charAt(1) === '/' || to.indexOf('\\') !== -1 || /^\/name-change/.test(to)) { to = '/'; }
+        document.getElementById('next').setAttribute('href', to);
+      } catch (e) { /* keep the default link to the home page */ }
+    })();
+  </script>
+</body>
+</html>
